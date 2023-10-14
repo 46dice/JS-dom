@@ -16,11 +16,44 @@
 
 const movieDB = {
     movies: [
+        "Одержимость",
         "Логан",
         "Лига справедливости",
         "Ла-ла лэнд",
-        "Одержимость",
-        "Скотт Пилигрим против..."
+        "Скотт Пилигрим против...",
     ]
 };
+
+//1
+const promo = document.querySelector('.promo__adv');
+const img = promo.querySelectorAll('img');
+img.forEach(element => {
+    element.remove()
+
+});
+
+//2
+const genre = document.querySelector('.promo__genre');
+genre.innerHTML = 'драма';
+
+//3
+const bg = document.querySelector('.promo__bg');
+bg.style.backgroundImage = `url('../img/bg.jpg')`;
+
+//4
+const interactiveList = document.querySelector('.promo__interactive-list');
+interactiveList.innerHTML = "";
+
+movieDB.movies.sort();
+movieDB.movies.forEach((film, i) => {
+    interactiveList.innerHTML += `
+        <li class="promo__interactive-item">${i + 1} ${film}
+            <div class="delete"></div>
+        </li>
+    `;
+});;
+
+// interactiveList.push(...movieDB.movies.sort())
+
+
 
